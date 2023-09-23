@@ -38,4 +38,4 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         export KUBECONFIG=kubeconfig
-        kubectl apply -f deployment.yaml
+        kubectl apply -f deployment.yaml && kubectl set image deployment/webapp-stage webapp-container=yuriartemiev/webapp-stage:${{ github.ref_name }}
